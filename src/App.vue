@@ -1,13 +1,20 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<template lang="pug">
+	#app
+		Menu
+		router-view
 </template>
+<script>
+import Menu from '@/components/Menu'
+import store from '@/store/index.js'
+export default {
+  name: 'app',
+  components: {
+	Menu
+  },
+  store
+}
 
+</script>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
