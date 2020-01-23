@@ -1,0 +1,23 @@
+button.main-btn {
+	background-color: white;
+	color: black;
+	border: 2px solid #4CAF50; /* Green */
+}
+
+button.main-btn:hover {
+		background-color: #4CAF50; /* Green */
+		color: white;
+		-webkit-transition-duration: 0.3s; /* Safari */
+		transition-duration: 0.3s;
+}
+
+button.main-btn:disabled,
+button.main-btn[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+}
+
+textarea {
+    resize: none;
+  }
+

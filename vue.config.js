@@ -1,4 +1,11 @@
-// vue.config.js
+const path = require("path");
+
 module.exports = {
-	lintOnSave: 'warning'
+  lintOnSave: "warning",
+  pluginOptions: {
+    "style-resources-loader": {
+      preProcessor: "scss",
+      patterns: [path.resolve(__dirname, "./src/styles/main.scss")]
+    }
   }
+};
