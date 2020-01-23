@@ -26,10 +26,11 @@ export default {
   max-width: 600px;
   width: 100%;
   position: absolute;
-  top: 60px;
+  left: 50%;
+  margin-left: -315px;
+  top: 24%;
   border: black solid 1px;
   background: rgb(173, 231, 219);
-  right: 250px;
   padding: 15px;
   box-sizing: border-box;
   .popup-card-wrapper {

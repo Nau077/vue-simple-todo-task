@@ -2,9 +2,9 @@
 	.popup-card-edit(v-if='isEdit')
 		.popup-card-wrapper
 			p Изменить заголовок
-			input(v-model="edit.editTitle")
+			input(v-model="title")
 			p Изменить описание
-			textarea(v-model="edit.editDescription")
+			textarea(v-model="description")
 			button.main-btn(@click='saveEdit()') Сохранить изменения
 		button.main-btn(@click='closeEditPopup()') Закрыть
 </template>
@@ -21,8 +21,8 @@ export default {
   },
   data() {
     return {
-      title: "",
-      description: ""
+      title: this.edit.editTitle,
+      description: this.editDescription
     };
   },
   methods: {
@@ -33,8 +33,8 @@ export default {
     saveEdit() {
       const payload = {
         id: this.id,
-        title: this.edit.editTitle,
-        description: this.edit.editDescription
+        title: this.title,
+        description: this.description
       };
       this.EditTodo(payload);
       this.$emit("saveEdit", false);
@@ -50,10 +50,11 @@ export default {
   max-width: 600px;
   width: 100%;
   position: absolute;
-  top: 60px;
   border: black solid 1px;
   background: rgb(173, 231, 219);
-  right: 250px;
+  left: 50%;
+  margin-left: -315px;
+  top: 24%;
   padding: 15px;
   box-sizing: border-box;
   .popup-card-wrapper {

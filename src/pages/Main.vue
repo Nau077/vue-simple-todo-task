@@ -24,7 +24,7 @@ section.main
 		PopupEdit(
 			:isEdit='isEdit'
 			:id='id'
-			:edit.sync='edit'
+			:edit='edit'
 			@saveEdit='saveEdit'
 			@closeEdit='closeEdit'
 		)
