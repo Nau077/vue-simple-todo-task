@@ -1,7 +1,7 @@
 <template lang="pug">
 section.main
 	.container
-		.wrapper-main-btn
+		.wrapper-main-btn(v-if='!isShownTodoFunc')
 			button.main-btn.title-btn(@click="viewTasks()") Добавить задание
 		AddTask(
 			:isShown='isShownTodoFunc'
@@ -32,6 +32,7 @@ section.main
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import popupsView from "@/mixins/popupsView";
 import PopupEdit from "@/components/custom/PopupEdit";
 import PopupDescription from "@/components/custom/PopupDescription";
 import AddTask from "@/components/page-modules/AddTask";
@@ -39,6 +40,7 @@ import TaskList from "@/components/page-modules/TaskList";
 
 export default {
   name: "Main",
+  mixins: [popupsView],
   components: {
     PopupEdit,
     PopupDescription,
@@ -51,8 +53,6 @@ export default {
       completed: true,
       canChange: false,
       isShownTodoFunc: false,
-      isPopup: false,
-      isEdit: false,
       currentDescription: "",
       edit: {
         editTitle: "",
@@ -85,15 +85,6 @@ export default {
       const todo = this.todos.find(item => id == item.id);
       this.currentDescription = todo.description;
       this.isPopup = true;
-    },
-    closeDescPopup() {
-      this.isPopup = false;
-    },
-    closeEdit() {
-      this.isEdit = false;
-    },
-    saveEdit(value) {
-      this.isEdit = value;
     }
   }
 };
@@ -122,18 +113,6 @@ export default {
 .title-btn {
   width: 100%;
   padding: 10px;
-}
-
-.popup-card {
-  max-width: 400px;
-  position: absolute;
-  top: 10px;
-  right: 250px;
-}
-
-.completed {
-  text-decoration: line-through;
-  color: rgb(182, 174, 174);
 }
 .content {
   display: flex;
