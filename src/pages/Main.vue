@@ -21,13 +21,13 @@ section.main
 			:description='currentDescription'
 			@closeDescPopup='closeDescPopup'
 		)
-		PopupEdit(
-			:isEdit='isEdit'
+		div(v-if='isEdit')
+			PopupEdit(
 			:id='id'
 			:edit='edit'
 			@saveEdit='saveEdit'
 			@closeEdit='closeEdit'
-		)
+			)
 </template>
 
 <script>

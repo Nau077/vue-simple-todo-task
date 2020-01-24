@@ -1,5 +1,5 @@
 <template lang="pug">
-	.popup-card-edit(v-if='isEdit')
+	.popup-card-edit
 		.popup-card-wrapper
 			p Изменить заголовок
 			input(v-model="title")
@@ -11,18 +11,16 @@
 
 <script>
 import { mapActions } from "vuex";
-
 export default {
   name: "PopupEdit",
   props: {
     edit: Object,
-    id: Number,
-    isEdit: Boolean
+    id: Number
   },
   data() {
     return {
       title: this.edit.editTitle,
-      description: this.editDescription
+      description: this.edit.editDescription
     };
   },
   methods: {
@@ -45,7 +43,6 @@ export default {
 
 <style scoped lang="scss">
 @import "src/styles/main.scss";
-
 .popup-card-edit {
   max-width: 600px;
   width: 100%;
