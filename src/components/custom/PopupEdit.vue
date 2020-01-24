@@ -1,16 +1,33 @@
 <template lang="pug">
 	.popup-card-edit
-		.popup-card-wrapper
+		.popup-card-wrapper(
+			:class="{ 'form-group--error': $v.title.$error && $v.description.$error}"
+			)
 			p Изменить заголовок
 			input(v-model="title")
 			p Изменить описание
 			textarea(v-model="description")
-			button.main-btn(@click='saveEdit()') Сохранить изменения
+			button.main-btn(
+				:disabled="$v.title.$invalid || $v.description.$invalid"
+				@click='saveEdit()'
+			) Сохранить изменения
+			.error(v-if="!$v.description.required && !$v.title.required")
+				|Поля должны быть заполнены
+			.error(v-if="!$v.description.minLength")
+				| Количество символов у описания минимум: {{$v.description.$params.minLength.min}}.
+			.error(v-if="!$v.title.minLength")
+				| Количество символов у заголовка минимум: {{$v.title.$params.minLength.min}}.
+			.error(v-if="!$v.description.maxLength")
+				| Количество символов у описания максимум: {{$v.description.$params.maxLength.max}}.
+			.error(v-if="!$v.title.maxLength")
+				| Количество символов у заголовка максимум: {{$v.description.$params.maxLength.max}}
 		button.main-btn(@click='closeEditPopup()') Закрыть
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import { required, minLength, maxLength } from "vuelidate/lib/validators";
+
 export default {
   name: "PopupEdit",
   props: {
@@ -22,6 +39,18 @@ export default {
       title: this.edit.editTitle,
       description: this.edit.editDescription
     };
+  },
+  validations: {
+    title: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(10)
+    },
+    description: {
+      required,
+      minLength: minLength(4),
+      maxLength: maxLength(80)
+    }
   },
   methods: {
     ...mapActions("todo", ["EditTodo"]),
