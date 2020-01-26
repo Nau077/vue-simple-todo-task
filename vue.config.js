@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+	publicPath: '/vue-simple-todo-task/',
 	lintOnSave: 'warning',
 	pluginOptions: {
 		'style-resources-loader': {
