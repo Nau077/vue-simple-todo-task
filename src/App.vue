@@ -1,7 +1,8 @@
 <template lang="pug">
 	#app
 		Menu
-		router-view
+		transition(name="router-fade")
+			router-view
 </template>
 <script>
 import Menu from '@/components/Menu'
