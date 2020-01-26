@@ -1,29 +1,23 @@
-# task-vue2
+# Vue simple todo task (с хранением vuex)
 
-## Project setup
+# Доступно демо на https://nau077.github.io/vue-simple-todo-task/
+
+## Установка
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Запуск development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
+### Запуск линтера
 ```
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Запуск prettier
+```
+npm run lint --fix
+```
