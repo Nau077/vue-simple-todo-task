@@ -1,11 +1,11 @@
-const path = require("path");
+const path = require('path')
 
 module.exports = {
-  lintOnSave: "warning",
-  pluginOptions: {
-    "style-resources-loader": {
-      preProcessor: "scss",
-      patterns: [path.resolve(__dirname, "./src/styles/main.scss")]
-    }
-  }
-};
+	lintOnSave: 'warning',
+	pluginOptions: {
+		'style-resources-loader': {
+			preProcessor: 'scss',
+			patterns: [path.resolve(__dirname, './src/styles/main.scss')]
+		}
+	}
+}
