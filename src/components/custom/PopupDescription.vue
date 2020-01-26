@@ -28,9 +28,9 @@ export default {
 	max-width: 500px;
 	width: 100%;
 	position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 	border: black solid 1px;
 	background: rgb(173, 231, 219);
 	padding: 15px;
@@ -38,7 +38,7 @@ export default {
 	.popup-card-wrapper {
 		display: flex;
 		flex-direction: column;
-		overflow-x:hidden
+		overflow-x: hidden;
 	}
 	button {
 		max-width: 300px;

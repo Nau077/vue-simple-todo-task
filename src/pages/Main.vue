@@ -33,7 +33,6 @@ section.main
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
 import popupsView from '@/mixins/popupsView'
 import PopupEdit from '@/components/custom/PopupEdit'
 import PopupDescription from '@/components/custom/PopupDescription'

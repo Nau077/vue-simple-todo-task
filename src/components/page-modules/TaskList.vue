@@ -57,14 +57,14 @@ export default {
 	margin-top: 20px;
 }
 .task {
-display: flex;
+	display: flex;
 	justify-content: space-between;
 	background-color: white;
 	max-width: 500px;
 	margin: 20px auto 20px auto;
 	padding: 10px;
 	background: #f1f1f1;
-	border: 2px solid #4CAF50;
+	border: 2px solid #4caf50;
 	.tasks-btns {
 		display: flex;
 		flex-direction: column;

@@ -73,20 +73,20 @@ export default {
 <style scoped lang="scss">
 @import 'src/styles/main.scss';
 .popup-card-edit {
-	max-width:500px;
+	max-width: 500px;
 	z-index: 10;
 	width: 100%;
 	position: absolute;
 	border: black solid 1px;
 	background: rgb(173, 231, 219);
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 	box-sizing: border-box;
 	.popup-card-wrapper {
 		display: flex;
 		flex-direction: column;
-		overflow-x:hidden
+		overflow-x: hidden;
 	}
 	input,
 	textarea,

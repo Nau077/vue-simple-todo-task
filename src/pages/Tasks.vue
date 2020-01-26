@@ -22,7 +22,7 @@ export default {
 	mixins: [popupsView],
 	components: {
 		TaskList,
-		PopupDescription,
+		PopupDescription
 	},
 	data() {
 		return {
