@@ -16,7 +16,6 @@
 						v-model="description"
 						)
 					button.main-btn(
-						@click="addTodo()"
 						:disabled="$v.title.$invalid || $v.description.$invalid"
 						) Добавить задачу
 				.error(v-if="!$v.description.required && !$v.title.required")
