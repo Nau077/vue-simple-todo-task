@@ -1,33 +1,34 @@
 <template lang="pug">
-		.wrapper-task(v-if='isShown')
-			slot(name="title")
-			form(
-				@submit.prevent='addTodo()'
-				:class="{ 'form-group--error': $v.title.$error && $v.description.$error}"
-				)
-				p Добавить заголовок:
-				input(
-					type="text" 
-					v-model="title"
+		transition(name="slide-fade")
+			.wrapper-task(v-if='isShown')
+				slot(name="title")
+				form(
+					@submit.prevent='addTodo()'
+					:class="{ 'form-group--error': $v.title.$error && $v.description.$error}"
 					)
-				p Добавить описание:
-				textarea(
-					v-model="description"
-					)
-				button.main-btn(
-					@click="addTodo()"
-					:disabled="$v.title.$invalid || $v.description.$invalid"
-					) Добавить задачу
-			.error(v-if="!$v.description.required && !$v.title.required")
-				|Поля должны быть заполнены
-			.error(v-if="!$v.description.minLength")
-				| Количество символов у описания минимум: {{$v.description.$params.minLength.min}}.
-			.error(v-if="!$v.title.minLength")
-				| Количество символов у заголовка минимум: {{$v.title.$params.minLength.min}}.
-			.error(v-if="!$v.description.maxLength")
-				| Количество символов у описания максимум: {{$v.description.$params.maxLength.max}}.
-			.error(v-if="!$v.title.maxLength")
-				| Количество символов у заголовка максимум: {{$v.title.$params.maxLength.max}}									
+					p Добавить заголовок:
+					input(
+						type="text" 
+						v-model="title"
+						)
+					p Добавить описание:
+					textarea(
+						v-model="description"
+						)
+					button.main-btn(
+						@click="addTodo()"
+						:disabled="$v.title.$invalid || $v.description.$invalid"
+						) Добавить задачу
+				.error(v-if="!$v.description.required && !$v.title.required")
+					|Поля должны быть заполнены
+				.error(v-if="!$v.description.minLength")
+					| Количество символов у описания минимум: {{$v.description.$params.minLength.min}}.
+				.error(v-if="!$v.title.minLength")
+					| Количество символов у заголовка минимум: {{$v.title.$params.minLength.min}}.
+				.error(v-if="!$v.description.maxLength")
+					| Количество символов у описания максимум: {{$v.description.$params.maxLength.max}}.
+				.error(v-if="!$v.title.maxLength")
+					| Количество символов у заголовка максимум: {{$v.title.$params.maxLength.max}}							
 </template>
 
 <script>

@@ -1,8 +1,9 @@
 <template lang="pug">
 section.main
 	.container
-		.wrapper-main-btn(v-if='!isShownTodoFunc')
-			button.main-btn.title-btn(@click="viewTasks()") Добавить задание
+		transition(name="slide-fade")
+			.wrapper-main-btn(v-if='!isShownTodoFunc')
+				button.main-btn.title-btn(@click="viewTasks()") Добавить задание
 		AddTask(
 			:isShown='isShownTodoFunc'
 		)

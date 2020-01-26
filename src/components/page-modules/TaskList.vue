@@ -1,17 +1,18 @@
 <template lang="pug">
 		.tasks-container
 			p Количество задач: {{todos.length}}
-			.task-list(v-for="list in todos" :key="list.id")
-				.task
-					p(:class="{'completed': list.isCompleted}") задача: {{list.title}}
-					transition(name="slide-fade")
-						.tasks-btns(v-if='canChange && !canShown')
+			transition-group(name="slide-fade")
+				.task-list(v-for="list in todos" :key="list.id")
+					.task
+						p(:class="{'completed': list.isCompleted}") задача: {{list.title}}
+						transition(name="slide-fade")
+							.tasks-btns(v-if='canChange && !canShown')
+								button.main-btn(@click="viewTodo(list.id)") Показать задачу
+								button.main-btn(@click="editTodo(list.id)") Изменить задачу
+								button.main-btn(@click="toggleTodo(list.id)" :disabled='list.isCompleted') Выполнить задачу
+								button.main-btn(@click="deleteTodo(list.id)" :disabled='!list.isCompleted') Удалить задачу
+						.tasks-btns(v-if='!canChange && canShown')
 							button.main-btn(@click="viewTodo(list.id)") Показать задачу
-							button.main-btn(@click="editTodo(list.id)") Изменить задачу
-							button.main-btn(@click="toggleTodo(list.id)" :disabled='list.isCompleted') Выполнить задачу
-							button.main-btn(@click="deleteTodo(list.id)" :disabled='!list.isCompleted') Удалить задачу
-					.tasks-btns(v-if='!canChange && canShown')
-						button.main-btn(@click="viewTodo(list.id)") Показать задачу
 
 </template>
 
