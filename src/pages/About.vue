@@ -7,11 +7,11 @@
 
 <script>
 export default {
-  name: "About"
-};
+	name: 'About'
+}
 </script>
 <style scoped>
 p {
-  margin-right: 10px;
+	margin-right: 10px;
 }
 </style>

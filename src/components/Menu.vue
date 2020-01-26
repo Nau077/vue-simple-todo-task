@@ -7,32 +7,42 @@ header
 
 <script>
 export default {
-  name: "Menu",
-  props: {
-    msg: String
-  },
-  data() {
-    return {
-      navbars: [
-        { names: "Main", router: "/" },
-        { names: "Tasks", router: "/Tasks" },
-        { names: "About", router: "/About" }
-      ]
-    };
-  }
-};
+	name: 'Menu',
+	props: {
+		msg: String
+	},
+	data() {
+		return {
+			navbars: [
+				{ names: 'Main', router: '/' },
+				{ names: 'Tasks', router: '/Tasks' },
+				{ names: 'About', router: '/About' }
+			]
+		}
+	}
+}
 </script>
 
 <style lang="scss">
 header {
-  width: 100%;
-  color: rgb(248, 248, 248);
-  .container {
-    display: flex;
-    max-width: 1110px;
-    width: 100%;
-    justify-content: center;
-    margin: auto;
-  }
+	width: 100%;
+	color: rgb(248, 248, 248);
+	background-color: rgb(245, 239, 239);
+	width: 100%;
+	.container {
+		display: flex;
+		width: 100%;
+		max-width: 200px;
+		justify-content: space-around;
+		margin: auto;
+		height: 40px;
+		align-items: center;
+	}
+	li a {
+		font-weight: bold;
+	}
+	li a.router-link-exact-active {
+	color: #42b983;
+}
 }
 </style>

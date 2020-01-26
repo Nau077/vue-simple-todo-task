@@ -27,80 +27,80 @@
 			.error(v-if="!$v.description.maxLength")
 				| Количество символов у описания максимум: {{$v.description.$params.maxLength.max}}.
 			.error(v-if="!$v.title.maxLength")
-				| Количество символов у заголовка максимум: {{$v.description.$params.maxLength.max}}									
+				| Количество символов у заголовка максимум: {{$v.title.$params.maxLength.max}}									
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import { required, minLength, maxLength } from "vuelidate/lib/validators";
+import { mapActions } from 'vuex'
+import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 
 export default {
-  name: "PopupEdit",
-  props: {
-    isShown: Boolean
-  },
-  data() {
-    return {
-      description: "",
-      title: ""
-    };
-  },
-  validations: {
-    title: {
-      required,
-      minLength: minLength(4),
-      maxLength: maxLength(10)
-    },
-    description: {
-      required,
-      minLength: minLength(4),
-      maxLength: maxLength(80)
-    }
-  },
-  methods: {
-    ...mapActions("todo", ["AddTodo"]),
-    addTodo() {
-      const newId = Date.now() + Math.random();
-      const payload = {
-        id: newId,
-        title: this.title,
-        description: this.description,
-        isCompleted: false
-      };
-      if (this.description.length && this.title.length) {
-        this.AddTodo(payload);
-        this.title = "";
-        this.description = "";
-      }
-    }
-  }
-};
+	name: 'PopupEdit',
+	props: {
+		isShown: Boolean
+	},
+	data() {
+		return {
+			description: '',
+			title: ''
+		}
+	},
+	validations: {
+		title: {
+			required,
+			minLength: minLength(4),
+			maxLength: maxLength(10)
+		},
+		description: {
+			required,
+			minLength: minLength(4),
+			maxLength: maxLength(80)
+		}
+	},
+	methods: {
+		...mapActions('todo', ['AddTodo']),
+		addTodo() {
+			const newId = Date.now() + Math.random()
+			const payload = {
+				id: newId,
+				title: this.title,
+				description: this.description,
+				isCompleted: false
+			}
+			if (this.description.length && this.title.length) {
+				this.AddTodo(payload)
+				this.title = ''
+				this.description = ''
+			}
+		}
+	}
+}
 </script>
 
 <style scoped lang="scss">
 .wrapper-task {
-  margin: 20px auto 20px auto;
-  width: 100%;
-  max-width: 500px;
-  padding: 10px;
-  box-sizing: border-box;
-  border: solid 1px black;
-  form {
-    display: flex;
-    flex-direction: column;
-    button {
-      margin: 5px auto 5px auto;
-      max-width: 100px;
-      width: 100%;
-    }
-  }
-  p {
-    margin: 5px auto 5px auto;
-    max-width: 400px;
-    width: 100%;
-  }
-  .error {
-    color: rgb(196, 29, 29);
-  }
+	margin: 20px auto 20px auto;
+	width: 100%;
+	max-width: 500px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: solid 1px black;
+	form {
+		display: flex;
+		flex-direction: column;
+		button {
+			margin: 5px auto 5px auto;
+			max-width: 100px;
+			width: 100%;
+		}
+	}
+	p {
+		margin: 5px auto 5px auto;
+		max-width: 400px;
+		width: 100%;
+	}
+	.error {
+		color: rgb(196, 29, 29);
+	}
 }
 </style>
