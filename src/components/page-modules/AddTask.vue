@@ -16,6 +16,7 @@
 						v-model="description"
 						)
 					button.main-btn(
+						type="submit"
 						:disabled="$v.title.$invalid || $v.description.$invalid"
 						) Добавить задачу
 				.error(v-if="!$v.description.required && !$v.title.required")
